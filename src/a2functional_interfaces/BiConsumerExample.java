@@ -1,4 +1,4 @@
-package functional_interfaces;
+package a2functional_interfaces;
 
 import data.Student;
 import data.StudentDataBase;

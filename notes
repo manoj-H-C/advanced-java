@@ -1,0 +1,11 @@
+1. use runnable when you want to just print something or perform an operation without returning anything.
+
+2. use comparator for sorting values in a list.
+
+3. use consumer and bi consumer in for-each loop, as a for-each loop of any list expects consumer parameter.
+
+4. use predicate and bi predicate for declaring different conditions. Inside the for-each loop, i use the conditions inside an if block.
+
+5. i can use both predicate and consumer together to make my code more robust.
+
+6.

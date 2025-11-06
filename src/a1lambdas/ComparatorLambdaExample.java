@@ -1,4 +1,4 @@
-package lambdas;
+package a1lambdas;
 
 import java.util.Comparator;
 
@@ -18,6 +18,6 @@ public class ComparatorLambdaExample {
 
         Comparator<Integer> comparator1 = (a,b) -> a.compareTo(b);
 
-        System.out.println("result of comparator1 " + comparator1.compare(2,3));
+        System.out.println("result of comparator1 " + comparator1.compare(3,3));
     }
 }

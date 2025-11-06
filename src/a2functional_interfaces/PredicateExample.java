@@ -1,4 +1,4 @@
-package functional_interfaces;
+package a2functional_interfaces;
 
 import java.util.function.Predicate;
 
