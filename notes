@@ -8,4 +8,4 @@
 
 5. i can use both predicate and consumer together to make my code more robust.
 
-6.
+6. use Function and bi Function when u want to perform certain operations and want a response of certain type in response.
