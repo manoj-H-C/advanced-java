@@ -1,0 +1,81 @@
+normal operations in stream
+1.stream().sorted(Comparator.comparing(Student::getGpa))
+2.stream().map(Student::getNoteBooks)//stream<Integer>
+3.map(Student::getActivities).flatMap(List::stream)
+4.distinct()
+5.stream().filter(student -> student.getGpa()==3.5)
+6.limit()
+7.stream().skip(3)
+8.limit(10)
+9.Stream.iterate(1, x -> x*2).limit(10)
+10Stream.generate(integerSupplier).limit(10)
+
+
+
+
+terminal operations
+1.findAny();
+2.findFirst();
+3.allMatch(student -> student.getGpa()>=3.5);
+4.anyMatch(student -> student.getGpa()>=4.0);
+5.noneMatch(student -> student.getGpa()>=4.1);
+6.reduce((x,y)-> (x>y) ? x : y);
+7.reduce(1,(a,b)->a*b);
+8.collect(Collectors.toMap(Student::getName,Student::getActivities));
+9.count();
+10.toList();
+
+collect section within terminal operations.
+
+11.collect(Collectors.toSet());
+12.collect(Collectors.counting());
+13.collect(groupingBy(Student::getGender));
+14.collect(Collectors.joining()); // appends all the strings to produce the output,
+15.collect(Collectors.joining("_","{","}"));
+16.collect(mapping(Student::getName,toSet())); // this avoids the additional map intermediate operation.
+17.collect(mapping(Student::getName,toList())); // this avoids the additional map intermediate operation.
+18.collect(Collectors.minBy(Comparator.comparing(Student::getGpa)));
+19.collect(Collectors.maxBy(Comparator.comparing(Student::getGpa)));
+20.collect(partitioningBy(gpaPredicate));
+21.collect(partitioningBy(gpaPredicate,toSet()));
+22.collect(partitioningBy(gpaPredicate,toMap(Student::getName,Student::getActivities)));
+23.collect(Collectors.summingInt(Student::getNoteBooks));
+24.collect(Collectors.averagingInt(Student::getNoteBooks));
+25.collect(Collectors.reducing(1,Student::getNoteBooks,(a,b)->a*b)); //directly use reduce for less complexity
+
+
+
+numeric streams
+1.int sum = IntStream.rangeClosed(1,50).sum();
+2.OptionalInt max = IntStream.rangeClosed(1,50).max();
+3.OptionalLong min = LongStream.rangeClosed(1,50).min();
+4.OptionalDouble avg = IntStream.rangeClosed(1,50).average();
+5.IntStream.rangeClosed(1,25)
+                  //int
+                  .boxed() //Stream<Integer>
+                  //all the elements will be passed one by one to get to the result as the collection.
+                  .collect(Collectors.toList());
+
+6.integerList.stream()
+                  //Integer
+                  .mapToInt(Integer::intValue)
+                  //int
+                  .sum();
+
+7.stream() // Stream<Integer>
+                  .reduce(0,(x,y)->x+y);
+
+8. IntStream.rangeClosed(1,5).mapToDouble((i) ->  i).sum();
+9. IntStream.rangeClosed(1,5).mapToLong((i) ->  i).sum();
+10.IntStream intStream = IntStream.range(1,50);
+    intStream.count();
+
+11. LongStream.rangeClosed(1,50).forEach(value -> System.out.print(value+","));
+12. LongStream.rangeClosed(1,50).asDoubleStream().forEach(value -> System.out.print(value+","));
+13. Double total = LongStream.rangeClosed(1,100).asDoubleStream().sum();
+
+
+parallel streaming
+
+
+
