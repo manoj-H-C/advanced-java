@@ -33,6 +33,15 @@ public class ParallelStreamExample {
     }
 
     public static void main(String[] args) {
+        System.out.println(Runtime.getRuntime().availableProcessors());
+
+        long sequentialDuration = checkPerformanceResult(ParallelStreamExample::sum_sequential_stream,20);
+        System.out.println("sequentialDuration in MilliSeconds: " + sequentialDuration);
+        //System.out.println("sequentialDuration in MilliSecs : " + TimeUnit.NANOSECONDS.toMillis(sequentialDuration));
+        long parallelDuration =checkPerformanceResult(ParallelStreamExample::sum_parallel_stream,20);
+
+        System.out.println("parallelDuration in MilliSeconds: " + parallelDuration);
+        //  System.out.println("parallelDuration in MilliSecs : " + TimeUnit.NANOSECONDS.toMillis(parallelDuration));
 
     }
 }

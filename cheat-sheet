@@ -26,7 +26,6 @@ terminal operations
 10.toList();
 
 collect section within terminal operations.
-
 11.collect(Collectors.toSet());
 12.collect(Collectors.counting());
 13.collect(groupingBy(Student::getGender));
